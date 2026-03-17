@@ -1,6 +1,6 @@
 # Scrapeless Scraping Browser
 
-Cloud browser automation CLI for AI agents, powered by Scrapeless. Provides headless browser control with built-in residential proxies, anti-detection, and session management.
+Cloud browser automation CLI for AI [config_old](../../../../.ssh/config_old)agents, powered by Scrapeless. Provides headless browser control with built-in residential proxies, anti-detection, and session management.
 
 ## Features
 
@@ -9,7 +9,7 @@ Cloud browser automation CLI for AI agents, powered by Scrapeless. Provides head
 - **Automatic browser fingerprinting** and anti-detection
 - **Session persistence** and automatic session management
 - **AI-friendly element references** (@e1, @e2, etc.)
-- **Screenshot and data extraction**
+- **S[release.yml](.github/workflows/release.yml)creenshot and data extraction**
 - **Multi-tab/window support**
 - **Session recording** for debugging
 
