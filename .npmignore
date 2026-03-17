@@ -1,0 +1,30 @@
+# Source files
+src/
+test/
+cli/
+
+# Config files
+.changeset/
+.github/
+.husky/
+.idea/
+.kiro/
+docker/
+scripts/
+
+# Build artifacts
+*.log
+*.tsbuildinfo
+node_modules/
+.DS_Store
+
+# Development files
+tsconfig.json
+vitest.config.ts
+.prettierrc
+.gitignore
+
+# Keep these for npm package
+!dist/
+!bin/
+!skills/
