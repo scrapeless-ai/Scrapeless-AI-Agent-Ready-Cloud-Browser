@@ -1,4 +1,5 @@
-[<img width="4800" height="2516" alt="img_v3_0210o_481d2da4-5151-4f6e-97af-81be371f209g" src="https://github.com/user-attachments/assets/7b2a7741-ee13-4813-a098-90c1937cbf97" />](https://www.scrapeless.com/en/product/scraping-browser)
+
+[<img width="4800" height="2516" alt="img_v3_0210o_3aad8381-32d9-4f35-9745-15c16232794g" src="https://github.com/user-attachments/assets/0b63923c-a90d-42c5-b09f-d7f07ca7de33" />](https://www.scrapeless.com/en/product/scraping-browser)
 
 
 The ultimate cloud browser automation CLI purpose-built for AI agents, powered by Scrapeless. Designed to seamlessly bridge the gap between Large Language Models (LLMs) and the web, it provides headless browser control with built-in residential proxies, advanced anti-detection mechanisms, and intelligent session management.
