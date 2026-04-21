@@ -5,7 +5,7 @@ allowed-tools: Bash(npx scrapeless-scraping-browser-skills scrapeless-scraping-b
 ---
 
 # Cloud Browser Automation with scrapeless-browser
-
+[README.md](README.md)
 ## Important: Session Management with --session-id
 
 **All browser operation commands support the `--session-id` parameter to specify which Scrapeless session to use.**
@@ -112,8 +112,8 @@ scrapeless-scraping-browser fill @e1 "user@example.com" && scrapeless-scraping-b
 ```bash
 # Navigation & Session
 scrapeless-scraping-browser new-session [options]              # Create new browser session
-scrapeless-scraping-browser [--session-id <id>] open <url>      # Navigate to URL
-scrapeless-scraping-browser [--session-id <id>] close           # Close browser session
+scrapeless-scraping-browser [--session-id <id>] open <url>     # Navigate to URL
+scrapeless-scraping-browser [--session-id <id>] close          # Close browser session
 scrapeless-scraping-browser sessions                           # List running sessions
 scrapeless-scraping-browser stop <taskId>                      # Stop specific session
 scrapeless-scraping-browser stop-all                           # Stop all sessions
@@ -138,10 +138,10 @@ scrapeless-scraping-browser new-session \
 # Session with custom browser configuration
 scrapeless-scraping-browser new-session \
   --name "mobile-session" \
-  --platform iOS \
+  --platform macOS \
   --screen-width 375 \
   --screen-height 812 \
-  --user-agent "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)" \
+  --user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
   --timezone "America/Los_Angeles" \
   --languages "en,es"
 
@@ -153,6 +153,7 @@ scrapeless-scraping-browser new-session \
 ```
 
 **Available Options:**
+- `--help`: Display help information and all available parameters
 - `--name <name>`: Session name for identification
 - `--ttl <seconds>`: Session timeout in seconds (default: 180)
 - `--recording <true|false>`: Enable session recording
@@ -160,14 +161,13 @@ scrapeless-scraping-browser new-session \
 - `--proxy-state <state>`: Proxy state/region (e.g., NSW, CA, NY, TX)
 - `--proxy-city <city>`: Proxy city (e.g., sydney, newyork, london, tokyo)
 - `--user-agent <ua>`: Custom user agent string
-- `--platform <platform>`: Platform (Windows, macOS, Linux, iOS, Android)
+- `--platform <platform>`: Platform (Windows, macOS, Linux)
 - `--screen-width <px>`: Screen width in pixels (default: 1920)
 - `--screen-height <px>`: Screen height in pixels (default: 1080)
 - `--timezone <tz>`: Timezone (default: America/New_York)
 - `--languages <langs>`: Comma-separated language codes (default: en)
 
 ```bash
-
 # Snapshot
 scrapeless-scraping-browser [--session-id <id>] snapshot -i             # Interactive elements with refs (recommended)
 scrapeless-scraping-browser [--session-id <id>] snapshot -i -C          # Include cursor-interactive elements
@@ -179,7 +179,7 @@ scrapeless-scraping-browser [--session-id <id>] fill @e2 "text"         # Clear 
 scrapeless-scraping-browser [--session-id <id>] type @e2 "text"         # Type without clearing
 scrapeless-scraping-browser [--session-id <id>] press Enter             # Press key
 scrapeless-scraping-browser [--session-id <id>] scroll down 500         # Scroll page
-scrapeless-scraping-browser [--session-id <id>] scroll down 500 --selector "div.content"  # Scroll within element
+scrapeless-scraping-browser [--session-id <id>] scroll down 500 --selector "div.content" # Scroll within element
 
 # Get information
 scrapeless-scraping-browser [--session-id <id>] get text @e1            # Get element text
@@ -195,11 +195,11 @@ scrapeless-scraping-browser [--session-id <id>] wait --url "**/page"    # Wait f
 scrapeless-scraping-browser [--session-id <id>] wait 2000               # Wait milliseconds
 
 # Cookies & Storage
-scrapeless-scraping-browser [--session-id <id>] cookies                 # Get all cookies
-scrapeless-scraping-browser [--session-id <id>] cookies set <name> <val> # Set cookie
-scrapeless-scraping-browser [--session-id <id>] cookies clear           # Clear cookies
-scrapeless-scraping-browser [--session-id <id>] storage local           # Get localStorage
-scrapeless-scraping-browser [--session-id <id>] storage local set <k> <v>  # Set localStorage
+scrapeless-scraping-browser [--session-id <id>] cookies                   # Get all cookies
+scrapeless-scraping-browser [--session-id <id>] cookies set <name> <val>  # Set cookie
+scrapeless-scraping-browser [--session-id <id>] cookies clear             # Clear cookies
+scrapeless-scraping-browser [--session-id <id>] storage local             # Get localStorage
+scrapeless-scraping-browser [--session-id <id>] storage local set <k> <v> # Set localStorage
 
 # Multi-page
 scrapeless-scraping-browser [--session-id <id>] pages                   # List all pages/tabs
@@ -210,33 +210,67 @@ scrapeless-scraping-browser [--session-id <id>] tab close [n]           # Close 
 # Live preview
 scrapeless-scraping-browser live [taskId]                              # Get live preview URL
 ```
-scrapeless-scraping-browser get url                 # Get current URL
-scrapeless-scraping-browser get title               # Get page title
-scrapeless-scraping-browser screenshot              # Take screenshot
-scrapeless-scraping-browser screenshot --full       # Full page screenshot
 
-# Wait
-scrapeless-scraping-browser wait @e1                # Wait for element
-scrapeless-scraping-browser wait --load networkidle # Wait for network idle
-scrapeless-scraping-browser wait --url "**/page"    # Wait for URL pattern
-scrapeless-scraping-browser wait 2000               # Wait milliseconds
-
-# Cookies & Storage
-scrapeless-scraping-browser cookies                 # Get all cookies
-scrapeless-scraping-browser cookies set <name> <val> # Set cookie
-scrapeless-scraping-browser cookies clear           # Clear cookies
-scrapeless-scraping-browser storage local           # Get localStorage
-scrapeless-scraping-browser storage local set <k> <v>  # Set localStorage
-
-# Multi-page
-scrapeless-scraping-browser pages                   # List all pages/tabs
-scrapeless-scraping-browser page <pageId>           # Switch to page
-scrapeless-scraping-browser tab new [url]           # Open new tab
-scrapeless-scraping-browser tab close [n]           # Close tab
-
-# Live preview
-scrapeless-scraping-browser live                    # Get live preview URL
+This document covers the most common usage patterns and commands. The Scrapeless Agentic Browser supports many more commands than listed here.
+To see the full command list, run:
 ```
+scrapeless-scraping-browser --help
+```
+
+## Core Commands Reference
+
+The following core commands are available for browser automation:
+
+### Navigation & Session Management
+
+- `open <url>` - Navigate to URL
+- `close` - Close browser session
+
+### Element Interaction
+
+- `click <sel>` - Click element (or @ref)
+- `dblclick <sel>` - Double-click element 
+- `hover <sel>` - Hover over element 
+- `focus <sel>` - Focus element 
+- `scrollintoview <sel>` - Scroll element into view
+
+### Text Input
+
+- `type <sel> <text>` - Type into element without clearing 
+- `fill <sel> <text>` - Clear and fill element with text 
+- `press <key>` - Press key (Enter, Tab, Control+a)
+- `keyboard type <text>` - Type text with real keystrokes (no selector required)
+- `keyboard inserttext <text>` - Insert text without key events
+
+### Form Controls
+
+- `check <sel>` - Check checkbox 
+- `uncheck <sel>` - Uncheck checkbox 
+- `select <sel> <val...>` - Select dropdown option(s)
+
+### Drag & Drop / File Operations
+
+- `drag <src> <dst>` - Drag and drop from source to destination 
+- `upload <sel> <files...>` - Upload files to input element 
+- `download <sel> <path>` - Download file by clicking element
+
+### Scrolling
+
+- `scroll <dir> [px]` - Scroll page (up/down/left/right) with optional pixel amount
+
+### Wait & Timing
+
+- `wait <sel|ms>` - Wait for element to appear or wait specified milliseconds
+
+### Capture & Export
+
+- `screenshot [path]` - Take screenshot (optionally save to path)
+- `pdf <path>` - Save current page as PDF
+
+### Advanced Operations
+
+- `snapshot` - Get accessibility tree with refs (optimized for AI agents)
+- `eval <js>` - Execute custom JavaScript code
 
 ## Common Patterns
 
@@ -264,20 +298,6 @@ scrapeless-scraping-browser get text @e5 --json
 ```
 
 ### Common Session Configuration Scenarios
-
-#### Mobile Device Simulation
-```bash
-# Simulate iPhone for mobile-specific content
-SESSION_ID=$(scrapeless-scraping-browser new-session \
-  --name "mobile-test" \
-  --platform iOS \
-  --screen-width 375 \
-  --screen-height 812 \
-  --user-agent "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)" \
-  --json | jq -r '.taskId')
-
-scrapeless-scraping-browser --session-id $SESSION_ID open https://m.example.com
-```
 
 #### Geographic Content Testing
 ```bash
@@ -392,8 +412,8 @@ scrapeless-scraping-browser config set fingerprint chrome
 scrapeless-scraping-browser open https://example.com
 
 # Customize browser fingerprint details
-scrapeless-scraping-browser config set userAgent "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)"
-scrapeless-scraping-browser config set platform iOS
+scrapeless-scraping-browser config set userAgent "your-agent"
+scrapeless-scraping-browser config set platform macOS
 scrapeless-scraping-browser config set screenWidth 375
 scrapeless-scraping-browser config set screenHeight 812
 scrapeless-scraping-browser config set timezone "Asia/Shanghai"
@@ -647,7 +667,7 @@ scrapeless-scraping-browser --debug open https://example.com
 | `proxyCity` | Proxy city |
 | `fingerprint` | Browser fingerprint |
 | `userAgent` | Custom user agent string |
-| `platform` | Platform type (Windows, Linux, macOS, iOS, Android) |
+| `platform` | Platform type (Windows, Linux, macOS) |
 | `screenWidth` | Screen width in pixels |
 | `screenHeight` | Screen height in pixels |
 | `timezone` | Timezone (e.g., America/New_York, Asia/Shanghai) |
@@ -708,4 +728,4 @@ npm update -g scrapeless-scraping-browser-skills
 
 - Documentation: https://docs.scrapeless.com
 - API Reference: https://api.scrapeless.com/docs
-- GitHub Issues: https://github.com/scrapeless-ai/scraping-browser-skill/issues
+- GitHub Issues: https://github.com/scrapeless-ai/scrapeless-agent-browser/issues
